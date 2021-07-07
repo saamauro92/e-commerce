@@ -32,7 +32,7 @@ body {
 
 header {
   grid-area: header;
-  background-color: #203040;
+  background-color: #2a2a2a;
 }
 
 main {
@@ -42,7 +42,7 @@ main {
 
 footer{
   grid-area: footer;
-  background-color: #203040;
+  background-color: #2a2a2a;
   color: #fff;
 }
 /*  Common classes */
@@ -71,7 +71,7 @@ ul {
 li{
   margin-top: 1rem;
 }
-
+input, select, textarea,
 button {
   padding: 1rem;
   border-radius: 0.5rem;
@@ -80,18 +80,22 @@ button {
   font-family: helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+}
+
+button {
   background-color: #f8f8f8;
   cursor: pointer;
 }
 
 button.primary {
-  background-color: #f0c040;
+  background-color: #c1c8dd;
 
 }
 button.block{
   width: 100%;
 }
-
+input:hover, select:hover, textarea:hover,
 button:hover{
   border: 0.1rem #203040 solid;
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import HomeScreen from './screens/HomeScreen';
 import ProductScreen from './screens/ProductScreen';
 import {BrowserRouter, Route} from 'react-router-dom';
+import CartScreen from './screens/CartScreen';
 
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
 
       <header className="row">
         <div>
-          <a className="brand" > E- COMMERCE</a>
+          <a className="brand" >__</a>
 
         </div>
         <div>
@@ -23,7 +24,7 @@ function App() {
       <main>
         <Route path="/" component={HomeScreen} exact></Route>
         <Route path="/product/:id" component={ProductScreen} ></Route>
-
+        <Route path="/cart/:id?" component={CartScreen} ></Route>
       </main>
 
       <footer className="row center">All Right reserved</footer>
