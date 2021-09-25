@@ -1,60 +1,35 @@
-const express = require('express');
+import express from 'express';
+import mongoose from 'mongoose';
+import productRouter from './routers/productRouter.js';
+import userRouter from './routers/userRouter.js';
+import dotenv from 'dotenv';
 
+dotenv.config();
 
 const app = express();
-const port = process.env.PORT || 5000;
+mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/ecommerce', {
 
+  useUnifiedTopology: true,
 
-const data = {
-    products: [
-        {
-            _id: '1',
-            name: 'Keyboard Sony',
-            category: 'It',
-            image: "/images/keyboard.png",
-            price: 200,
-            countInStock: 10,
-            brand:'Sony',
-            rating:5,
-            numReviews:3,
-            description:"high quality keyboard sony..."
-        },
-        {
-            _id: '2',
-            name: 'Keyboard XPR',
-            category: 'It',
-            image: '/images/k2.jpg',
-            price: 180,
-            countInStock: 20,
-            brand:'Sony',
-            rating:4.5,
-            numReviews:7,
-            description:"high quality keyboard sony..."
-        },
-    ],
-};
+});
 
 
 
-app.get('/api/products/:id', (req, res) => {
-const product = data.products.find( x=> x._id === req.params.id);
-if(product) {
-    res.send(product);
-}else {
-    res.status(404).send({message: "Product not found"});
-}
+app.use('/api/users', userRouter );
 
-})
-
-app.get('/api/products', (req, res) => {
-    res.send(data.products);
-
-})
+app.use('/api/products', productRouter);
 
 app.get('/', (req, res) => {
     res.send("Server is ready");
 });
 
 
+
+app.use((err, req, res, next)=> {
+    res.status(500).send({message: err.message});
+})
+
+
+const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
 

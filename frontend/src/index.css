@@ -113,6 +113,7 @@ a.brand{
 }
 
 .badge {
+  
   background-color: #f02020;
   color: #fff;
   border-radius: 50%;
@@ -141,6 +142,10 @@ a.brand{
   flex: 2 1 50rem;
 }
 
+.min-30 {
+  min-width: 30rem;
+}
+
 /*  IMAGES */
 
 img{
@@ -151,6 +156,13 @@ img.medium{
   max-width: 29rem;
   width: 100%;
 }
+
+img.small {
+  max-width: 5rem;
+  width: 100%;
+}
+
+
 
 img.large {
   width: 100%;
@@ -176,6 +188,10 @@ margin: 1rem;
 .price {
   font-size: 2rem;
 }
+
+
+
+
 
 /* Rating */
 
@@ -212,3 +228,4 @@ border-radius: 0.5rem;
   color: #a02020;
   background-color: #ffe0e0e0;
 }
+

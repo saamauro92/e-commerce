@@ -8,7 +8,7 @@ const data = {
             name: 'Keyboard Sony',
             category: 'It',
             image: "/images/keyboard.png",
-            price: 200,
+            price: 90000,
             countInStock: 10,
             brand:'Sony',
             rating:5,
