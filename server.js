@@ -8,29 +8,29 @@ dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 
-mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/ecommerce', {
+mongoose.connect(process.env.MONGODB_URL, {
 
   useUnifiedTopology: true,
 
-});
+})
 
 
 
-app.use('/api/users', userRouter );
+app.use('/api/users', userRouter);
 
 app.use('/api/products', productRouter);
 
 app.get('/', (req, res) => {
-    res.send("Server is ready");
+  res.send("Server is ready", process.env.MONGODB_URL);
 });
 
 
 
-app.use((err, req, res, next)=> {
-    res.status(500).send({message: err.message});
+app.use((err, req, res, next) => {
+  res.status(500).send({ message: err.message });
 })
 
 
