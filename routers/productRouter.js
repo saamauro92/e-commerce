@@ -29,35 +29,4 @@ productRouter.get('/:id', expressAsyncHandler(async (req, res) => {
 }))
 
 
-productRouter.post('/', (req, res) => {
-
-
-    var newProduct = new Product({
-
-        name: req.body.name,
-        image: req.body.image,
-        brand: req.body.brand,
-        category: req.body.category,
-        description: req.body.description,
-        price: req.body.price,
-        countInStock: req.body.countInStock,
-        rating: req.body.rating,
-        numReviews: req.body.numReviews,
-    })
-
-    newProduct.save()
-        .then(result => {
-            console.log(result);
-            res.status(201).json({
-                message: "Handling POST requests to /products",
-                createdProduct: result
-            });
-        })
-        .catch(err => {
-            console.log(err);
-            res.status(500).json({
-                error: err
-            });
-        });
-})
 export default productRouter;
